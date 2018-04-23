@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #user_params will specify the specific parameters that will be accepted. No more, no less
     if @user.save
-
+      redirect_to @user
     else
       render 'new'
     end
