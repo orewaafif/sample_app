@@ -7,7 +7,12 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password]) #this uses the authenticate method that comes with has_secure_password
       #login user
       log_in user
-      remember user
+      if params[:session][:remember_me] == '1'
+        remember(user)
+      else
+        forget(user)
+      end
+      #or simply write: params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'
