@@ -12,6 +12,7 @@ afif:
   name: Afif Example
   email: afifashroff@example.com
   password_digest: <%= User.digest('password') %>
+  admin: true 
 
 amirah:
   name: Amirah Example
