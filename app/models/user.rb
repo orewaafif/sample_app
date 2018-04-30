@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_secure_password
 
   def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCript::Engine.cost
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 
     BCrypt::Password.create(string, cost: cost)
   end
@@ -54,6 +54,6 @@ class User < ApplicationRecord
     def create_activation_digest
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
-    end 
+    end
 
 end
