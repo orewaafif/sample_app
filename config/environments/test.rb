@@ -18,6 +18,10 @@ Rails.application.configure do
     'Cache-Control' => "public, max-age=#{1.hour.seconds.to_i}"
   }
 
+  #This set the host of the mailer for testing (?)
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { host: "example.com" }
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
