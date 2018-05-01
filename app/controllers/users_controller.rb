@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #user_params will specify the specific parameters that will be accepted. No more, no less
     if @user.save
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "Please check your email to activate your account and login."
       redirect_to root_url
       # log_in @user

@@ -20,7 +20,7 @@ Rails.application.configure do
 
   #This set the host of the mailer for testing (?)
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_url_options = { host: "example.com" }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
